@@ -7,10 +7,59 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+        <script>
+            let variableContador = 0
+            function f1()
+            {
+                if(variableContador === 10)
+                {
+                    variableContador = 0
+                }
+                for(let i = 0; i < variableContador; i++)
+                {
+                    console.log('Se ha ingresado a la iterativa')
+                }
+                console.log('Le ha hecho click al boton')
+                variableContador = variableContador + 1
+                console.log('La cuenta es : ')
+                console.log(variableContador)
+            }
+
+            function f2()
+            {
+                console.log('Se ha cambiado la seleccion')
+            }
+
+            document.addEventListener('DOMContentLoaded',()=>{
+                /*
+                let anuncioInfo = document.getElementById('anuncio')
+                anuncioInfo.innerHTML = `
+                <h1 style='color:red;'> Anuncio de la pagina web  </h1>
+                `
+                */
+                /*
+                let elementosNombre = document.getElementById('2')
+                console.log(elementosNombre.innerHTML)
+                elementosNombre.innerHTML = 'Producto Anime'
+                */
+
+                /*
+                for(let i = 0; i < elementosNombre.length; i++)
+                {
+                    console.log(elementosNombre[i].innerHTML)
+                    elementosNombre[i].innerHTML = 'Producto Anime'
+                }
+                */
+            })
+
+
+
+        </script>
     </head>
     <body>
         <div class="container">
             <br>
+            <div id="anuncio"></div>
             <div class="row alert alert-danger text-center">
                 <h3>Figuras de coleccion</h3>
             </div>
@@ -21,7 +70,7 @@
                         <br>
                         <div class="row justify-content-center">
                             <div class="col-8 alert alert-success text-center">
-                                <h5>{{ producto.nombre }}</h5>
+                                <h5 class="nombreProducto" id="{{ producto.id }}">{{ producto.nombre }}</h5>
                             </div>
                         </div>
                         <div class="row justify-content-center">
@@ -49,6 +98,17 @@
                     </div>
                     <br>
                     {% endfor %}
+                    <div class="row" id="ejemploJS">
+                        <button onclick="f1()">Click Here</button>
+                    </div>
+                    <div class="row">
+                        <h1>Seleccione estado</h1>
+                        <select class="form-select" onchange="f2()">
+                            <option selected></option>
+                            <option value="Nuevo">Nuevo</option>
+                            <option value="Abierto">Abierto</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
