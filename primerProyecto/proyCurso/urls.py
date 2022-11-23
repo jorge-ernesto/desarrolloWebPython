@@ -5,5 +5,6 @@ app_name='proyCurso'
 
 urlpatterns = [
     path('dashboard',views.dashboard,name='dashboard'),
-    path('vistaProd',views.vistaProd,name='vistaProd'),
+    path('vistaProd/<str:ind>',views.vistaProd,name='vistaProd'),
+    path('eliminarProd/<str:ind>',views.eliminarProd,name='eliminarProd')
 ]

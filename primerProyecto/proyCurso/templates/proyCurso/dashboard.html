@@ -39,7 +39,10 @@
                                 </div>
                                 <br>
                                 <div class="row">
-                                    <a class="btn btn-success">Ver producto</a>
+                                    <a class="btn btn-success" href="{% url 'proyCurso:vistaProd' producto.id %}">Ver producto</a>
+                                </div>
+                                <div class="row">
+                                    <a class="btn btn-danger" href="{% url 'proyCurso:eliminarProd' producto.id %}">Eliminar Producto</a>
                                 </div>
                             </div>
                         </div>
