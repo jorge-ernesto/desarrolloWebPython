@@ -29,3 +29,12 @@ def obtenerInfo(request):
     return JsonResponse({
         'dato':arregloProducto,
     })
+
+def verSolicitudes(request):
+    return render(request,'proyCurso/verSolicitudes.html')
+
+def crearSolicitud(request):
+    productos_totales = producto.objects.all().order_by('id')
+    return render(request,'proyCurso/crearSolicitud.html',{
+        'productos':productos_totales
+    })

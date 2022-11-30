@@ -16,6 +16,12 @@
             <div class="row alert alert-danger text-center">
                 <h3>Figuras de coleccion</h3>
             </div>
+            <div class="row">
+                <div class="col-10"></div>
+                <div class="col-2">
+                    <a class="btn btn-success" href="{% url 'proyCurso:verSolicitudes' %}">Solicitudes</a>
+                </div>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-6 bg-white">
                     {% for producto in productos_totales %}
@@ -43,7 +49,7 @@
                                 <div class="row">
                                     <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#verProducto" onclick="obtenerInfo(this.id)" id="{{ producto.id }}">Ver producto</a>
                                 </div>
-                                <div class="row">
+                                <div class="row" style="display: none;">
                                     <a class="btn btn-danger" href="{% url 'proyCurso:eliminarProd' producto.id %}">Eliminar Producto</a>
                                 </div>
                             </div>

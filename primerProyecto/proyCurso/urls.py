@@ -7,5 +7,7 @@ urlpatterns = [
     path('dashboard',views.dashboard,name='dashboard'),
     path('vistaProd/<str:ind>',views.vistaProd,name='vistaProd'),
     path('eliminarProd/<str:ind>',views.eliminarProd,name='eliminarProd'),
-    path('obtenerInfo',views.obtenerInfo,name='obtenerInfo')
+    path('obtenerInfo',views.obtenerInfo,name='obtenerInfo'),
+    path('verSolicitudes',views.verSolicitudes,name='verSolicitudes'),
+    path('crearSolicitud',views.crearSolicitud,name='crearSolicitud')
 ]
