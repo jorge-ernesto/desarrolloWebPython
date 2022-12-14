@@ -1,6 +1,8 @@
 function crearSolicitud()
 {
+    let clienteSolicitud = document.getElementById('clienteSolicitud')
     let cuerpoTabla = document.getElementById('cuerpoTabla')
+    clienteInfo = clienteSolicitud.value
     console.log(cuerpoTabla.rows)
     console.log(cuerpoTabla.rows.length)
     longitudTabla = cuerpoTabla.rows.length
@@ -8,14 +10,15 @@ function crearSolicitud()
     for(let i = 0; i < longitudTabla; i++)
     {
         productoDatos = cuerpoTabla.rows.item(i)
-        let producto = [productoDatos.cells.item(0).innerHTML,productoDatos.cells.item(1).innerHTML,productoDatos.cells.item(2).innerHTML,productoDatos.cells.item(3).innerHTML]
+        let producto = [productoDatos.cells.item(0).innerHTML,productoDatos.cells.item(1).innerHTML,productoDatos.cells.item(2).innerHTML,productoDatos.cells.item(3).innerHTML,productoDatos.cells.item(4).innerHTML]
         arregloProductos.push(producto)
     }
     console.log(arregloProductos)
 
     url = '/proyCurso/agregarSolicitud'
     infoProductos = {
-        'productosCapturados':arregloProductos
+        'productosCapturados':arregloProductos,
+        'cliente':clienteInfo
     }
 
     fetch(url,{
@@ -29,6 +32,7 @@ function crearSolicitud()
     .then(response => response.json())
     .then(data => {
         console.log(data)
+        window.location.assign('/proyCurso/dashboard')
     })
 }
 
@@ -53,6 +57,7 @@ function getCookie(name)
 
 function agregarProducto()
 {
+    let idProducto = document.getElementById('idProducto')
     let nombreProducto = document.getElementById('nombreProducto')
     let estadoProducto = document.getElementById('estadoProducto')
     let precioProducto = document.getElementById('precioProducto')
@@ -62,6 +67,7 @@ function agregarProducto()
 
     cuerpoTabla.innerHTML += `
     <tr>
+        <td>${idProducto.value}</td>
         <td>${nombreProducto.value}</td>
         <td>${cantidadProducto.value}</td>
         <td>${estadoProducto.value}</td>
@@ -80,13 +86,15 @@ addEventListener('DOMContentLoaded', ()=>{
         .then(response => response.json())
         .then(data => {
             console.log(data)
+            let idProducto = document.getElementById('idProducto')
             let nombreProducto = document.getElementById('nombreProducto')
             let estadoProducto = document.getElementById('estadoProducto')
             let precioProducto = document.getElementById('precioProducto')
 
-            nombreProducto.value = data.dato[0]
-            estadoProducto.value = data.dato[3]
-            precioProducto.value = data.dato[1]
+            idProducto.value = data.dato[0]
+            nombreProducto.value = data.dato[1]
+            estadoProducto.value = data.dato[4]
+            precioProducto.value = data.dato[2]
 
         })
     }

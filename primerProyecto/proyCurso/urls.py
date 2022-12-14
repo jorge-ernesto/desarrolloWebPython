@@ -11,4 +11,5 @@ urlpatterns = [
     path('verSolicitudes',views.verSolicitudes,name='verSolicitudes'),
     path('crearSolicitud',views.crearSolicitud,name='crearSolicitud'),
     path('agregarSolicitud',views.agregarSolicitud,name='agregarSolicitud'),
+    path('descargar_solicitud/<str:ind>',views.descargar_solicitud,name='descargar_solicitud'),
 ]

@@ -27,12 +27,22 @@
             <div class="row">
                 <table class="table table-bordered">
                     <thead class="table-dark">
+                        <th>Id</th>
                         <th>Fecha</th>
                         <th>Cliente</th>
-                        <th>Precio</th>
+                        <th>Codigo de solicitud</th>
                         <th>Descargar</th>
                     </thead>
                     <tbody>
+                        {% for solicitud in solicitudes %}
+                        <tr>
+                            <td>{{ solicitud.id }}</td>
+                            <td>{{ solicitud.fecha|date:'d-m-Y' }}</td>
+                            <td>{{ solicitud.cliente }}</td>
+                            <td>{{ solicitud.codigoSolicitud }}</td>
+                            <td><a class="btn btn-info" href="{% url 'proyCurso:descargar_solicitud' solicitud.id %}">Descargar</a></td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
