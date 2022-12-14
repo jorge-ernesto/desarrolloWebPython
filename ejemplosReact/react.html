@@ -12,11 +12,17 @@
             
             function Iterativa()
             {
+                const [state,setState] = React.useState({
+                    nombres : ['alexander','rodrigo','javier','martin']
+                })
+
                 return(
                     <div>
-                        <App nombre='Javier'/>
-                        <App nombre='Rodrigo'/>
-                        <App nombre='Alexander'/>
+                        {
+                            state.nombres.map(usuario => {
+                                return(<App nombre={usuario} />)
+                            })
+                        }
                     </div>
                 );
             }

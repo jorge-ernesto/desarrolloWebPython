@@ -30,4 +30,7 @@ def ingreso(request):
         'usuarios':usuariosInformacion,
     })
 
+def sumador(request):
+    return render(request,'ejemplo_django/sumador.html')
+
 #Wappalyzer

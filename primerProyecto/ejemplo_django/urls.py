@@ -5,5 +5,6 @@ app_name = 'ejemplo_django'
 
 urlpatterns = [
     path('',views.index,name='index'),
-    path('ingreso',views.ingreso,name='ingreso')
+    path('ingreso',views.ingreso,name='ingreso'),
+    path('sumador',views.sumador,name='sumador'),
 ]

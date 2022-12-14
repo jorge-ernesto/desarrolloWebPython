@@ -9,5 +9,6 @@ urlpatterns = [
     path('eliminarProd/<str:ind>',views.eliminarProd,name='eliminarProd'),
     path('obtenerInfo',views.obtenerInfo,name='obtenerInfo'),
     path('verSolicitudes',views.verSolicitudes,name='verSolicitudes'),
-    path('crearSolicitud',views.crearSolicitud,name='crearSolicitud')
+    path('crearSolicitud',views.crearSolicitud,name='crearSolicitud'),
+    path('agregarSolicitud',views.agregarSolicitud,name='agregarSolicitud'),
 ]

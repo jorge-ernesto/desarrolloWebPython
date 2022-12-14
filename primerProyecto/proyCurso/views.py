@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import producto
 from django.http import HttpResponseRedirect,JsonResponse
 from django.urls import reverse
+import json
 
 # Create your views here.
 
@@ -38,3 +39,11 @@ def crearSolicitud(request):
     return render(request,'proyCurso/crearSolicitud.html',{
         'productos':productos_totales
     })
+
+def agregarSolicitud(request):
+    if request.method == 'POST':
+        datos = json.load(request)
+        print(datos)
+        return JsonResponse({
+            'resp':'ok'
+        })
